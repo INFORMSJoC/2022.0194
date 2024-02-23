@@ -32,8 +32,25 @@ Below is the BibTex for citing this snapshot of the respoitory.
 ## Data
 Data sets used for experiments in this paper is available in the data directory.
 
-## Reproducing Results
+## Replication
 
 You will need java compiler to run the code.
 
 To execute CP-tree based recommendation, run the following:
+```
+java GOPC_Tree patternFile trainingFile resultFile topk
+```
+Sample input file format:
+ - patternFile: pattern_items cosine_value
+   ```
+   A B 0.5
+   A B C 0.3
+   ```
+ - trainingFile: uid itemids
+   ```
+   u1 A B E G
+   u2 B C F
+   ```
+
+## Support
+Please contact [Yaqiong Wang](ywang31@scu.edu) if you have any questions.
