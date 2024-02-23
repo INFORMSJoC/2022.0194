@@ -12,19 +12,19 @@ The purpose of this repository is to share the data and scripts reported in the 
 
 To cite the contents of this repository, please cite both the paper and this repo, using their respective DOIs.
 
-https://doi.org/??/ijoc.2022.0194
+https://doi.org/10.1287/ijoc.2022.0194
 
-https://doi.org/??/ijoc.2022.0194.cd
+https://doi.org/10.1287/ijoc.2022.0194.cd
 
 Below is the BibTex for citing this snapshot of the respoitory.
 
 ```
-@article{??,
+@article{ijoc.2022.0194,
   author =        {Wang, Yaqiong and Wu, Junjie and Wu, Zhiang and Adomavicius, Gediminas},
   publisher =     {INFORMS Journal on Computing},
   title =         {{Efficient and Flexible Long-Tail Recommendation Using Cosing Patterns}},
   year =          {2024},
-  doi =           {??/ijoc.2022.0194.cd},
+  doi =           {10.1287/ijoc.2022.0194.cd},
   note =          {Available for download at {https://github.com/INFORMSJoC/2022.0194}},
 }  
 ```
