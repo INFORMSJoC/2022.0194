@@ -51,7 +51,7 @@ Sample input file format:
    ```
    u1 A B E G
    u2 B C F
-   U3 A D H J
+   u3 A D H J
    ```
 
 ## Support
