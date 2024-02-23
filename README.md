@@ -45,11 +45,13 @@ Sample input file format:
    ```
    A B 0.5
    A B C 0.3
+   A E G 0.4
    ```
  - trainingFile: uid itemids
    ```
    u1 A B E G
    u2 B C F
+   U3 A D H J
    ```
 
 ## Support
