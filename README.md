@@ -41,13 +41,13 @@ To execute CP-tree based recommendation, run the following:
 java GOPC_Tree patternFile trainingFile resultFile topk
 ```
 Sample input file format:
- - patternFile: pattern_items cosine_value
+ - patternFile.txt: pattern_items cosine_value
    ```
    A B 0.5
    A B C 0.3
    A E G 0.4
    ```
- - trainingFile: uid itemids
+ - trainingFile.txt: uid itemids
    ```
    u1 A B E G
    u2 B C F
