@@ -5,3 +5,5 @@
  - Last.fm: https://grouplens.org/datasets/hetrec-2011/ (In our study, this data set was preprocessed to keep users with >= 10 music listening records)
 
  - Yelp: https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset/versions/1?resource=download (In our study, this data set was preprossed to keep restaurants in Toronto and users with >= 10 restaurant ratings)
+
+ - Weibo: [https://www.kaggle.com/datasets/yelp-dataset/yelp-dataset/versions/1?resource=download (In our study, this data set was preprossed to keep restaurants in Toronto and users with >= 10 restaurant ratings)](https://drive.google.com/file/d/1eCg2xD2eNw9fuA1-M1L4KgXXhMgIim3U/view?usp=sharing)https://drive.google.com/file/d/1eCg2xD2eNw9fuA1-M1L4KgXXhMgIim3U/view?usp=sharing
