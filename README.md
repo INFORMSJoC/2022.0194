@@ -30,7 +30,7 @@ Below is the BibTex for citing this snapshot of the respoitory.
 ```
 
 ## Data
-Data sets used for experiments in this paper is available in the data directory.
+Data sets used for experiments in this paper are described in the data directory.
 
 ## Replication
 
@@ -53,6 +53,13 @@ Sample input file format:
    u2 B C F
    u3 A D H J
    ```
+## Baselines
+
+We used the following publicly available libraries for baseline algorithms:
+- MyMediaLite (http://www.mymedialite.net/): UserKNN, ItemKNN, SoftMarginRankingMF, BPRMF, WRMF
+- Libname (url): AR, FP, PAR
+- Libname (url): Deep Learning
+- Libname (url): Long-tail
 
 ## Support
 Please contact [Yaqiong Wang](ywang31@scu.edu) if you have any questions.
