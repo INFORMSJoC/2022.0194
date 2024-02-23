@@ -23,12 +23,12 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class GOPC_Tree {
-    public Node root;//root½Úµã
-    public ArrayList<ArrayList<String>> Tu;//±£´æ²âÊÔÊı¾İ
-    public Map<String,Float>score;//´æ´¢ÍÆ¼öµÄitemµÄ±àºÅÓëÖµ
+    public Node root;//root node
+    public ArrayList<ArrayList<String>> Tu;//ä¿å­˜æµ‹è¯•æ•°æ®
+    public Map<String,Float>score;//å­˜å‚¨æ¨èçš„itemçš„ç¼–å·ä¸å€¼
     public int maxlength;
     /**
-     * ¹¹½¨Ê÷
+     * æ„å»ºæ ‘
      * @param file
      * @throws Exception
      */
@@ -69,7 +69,7 @@ public class GOPC_Tree {
         				nownode.child_list.add(u);
         			}
         			else{
-        				int listLength_1 = nownode.child_list.size();//µ±Ç°½Úµãº¢×Ó½ÚµãµÄ¸öÊı
+        				int listLength_1 = nownode.child_list.size();//å½“å‰èŠ‚ç‚¹å­©å­èŠ‚ç‚¹çš„ä¸ªæ•°
         				if(!nownode.child_list.get(listLength_1-1).item_name.equals(ss[i])){
         					Node u = new Node(ss[i],0,nownode);
         					u.level=i;
@@ -91,7 +91,7 @@ public class GOPC_Tree {
     maxlength--;
     }
     /**
-     * ¶ÁÈ¡²âÊÔÊı¾İ
+     * è¯»å–æµ‹è¯•æ•°æ®
      * @param file
      * @throws Exception
      */
@@ -111,7 +111,7 @@ public class GOPC_Tree {
     	}
     }
     /**
-     * ËÑË÷Â·¾¶
+     * æœç´¢è·¯å¾„
      * @param file
      * @param maxnum
      * @param k
@@ -125,45 +125,45 @@ public class GOPC_Tree {
        	    	bw.write(String.valueOf(i+1));
        	    	bw.write(" ");
        	    	bw.write("item: ");
-    		score=new HashMap<String,Float>();//valueÖµÊı×é³õÊ¼»¯
-    		ArrayList<Node>rootchild = root.child_list;//ËùÓĞµÚ¶ş²ã½Úµã
-    		String iut ="";//ÍÆ¼öµÄitemµÄ±àºÅ³õÊ¼»¯
-    		ArrayList<String> tu = Tu.get(i);//»ñÈ¡ÍêÕûµÄÓÃ»§session
-    		ArrayList<String> u_tu;//±£´æÓÃ»§²¿·Ösession
-    		/**Éè¶¨´°¿Ú**/
+    		score=new HashMap<String,Float>();//valueå€¼æ•°ç»„åˆå§‹åŒ–
+    		ArrayList<Node>rootchild = root.child_list;//æ‰€æœ‰ç¬¬äºŒå±‚èŠ‚ç‚¹
+    		String iut ="";//æ¨èçš„itemçš„ç¼–å·åˆå§‹åŒ–
+    		ArrayList<String> tu = Tu.get(i);//è·å–å®Œæ•´çš„ç”¨æˆ·session
+    		ArrayList<String> u_tu;//ä¿å­˜ç”¨æˆ·éƒ¨åˆ†session
+    		/**è®¾å®šçª—å£**/
 			if(tu.size()>=windowsize) u_tu= new ArrayList<String>(tu.subList(0, windowsize));
 			else u_tu= new ArrayList<String>(tu);
-    		for(int k=u_tu.size();k>0;k--){//´°¿ÚË¥¼õ
-    			if(!score.isEmpty())break;//ÓĞÍÆ¼öÏî  Í£Ö¹ËÑË÷
-    			List<String> sub_string = new ArrayList<String>(u_tu.subList(0, k));//µ±Ç°´óĞ¡µÄsession
-    			Collections.sort(sub_string);//ÅÅĞò
-    			String ComStr = sub_string.get(0);//·ÃÎÊµÄ×îĞ¡µÄ½Úµã
+    		for(int k=u_tu.size();k>0;k--){//çª—å£è¡°å‡
+    			if(!score.isEmpty())break;//æœ‰æ¨èé¡¹  åœæ­¢æœç´¢
+    			List<String> sub_string = new ArrayList<String>(u_tu.subList(0, k));//å½“å‰å¤§å°çš„session
+    			Collections.sort(sub_string);//æ’åº
+    			String ComStr = sub_string.get(0);//è®¿é—®çš„æœ€å°çš„èŠ‚ç‚¹
 				for(Node second :rootchild){
-	    			int re = ComStr.compareTo(second.item_name);//»ñÈ¡µ±Ç°½ÚµãÓëTuµÄ²î¾à
-	    			if(re > 0){//µ±´óÓÚÊ±£¬ÍÆ¼öÏîÊÇµÚÒ»¸ö£¬ÒªÅĞ¶ÏºóÃæµÄ½ÚµãÊÇ·ñºÍµ±Ç°½ÚµãÊÇ·ñÒ»ÖÂ
+	    			int re = ComStr.compareTo(second.item_name);//è·å–å½“å‰èŠ‚ç‚¹ä¸Tuçš„å·®è·
+	    			if(re > 0){//å½“å¤§äºæ—¶ï¼Œæ¨èé¡¹æ˜¯ç¬¬ä¸€ä¸ªï¼Œè¦åˆ¤æ–­åé¢çš„èŠ‚ç‚¹æ˜¯å¦å’Œå½“å‰èŠ‚ç‚¹æ˜¯å¦ä¸€è‡´
 	    				if(u_tu.contains(second.item_name))continue;
-	    				String recomname = second.item_name;//ÍÆ¼öÏîÄ¿
-	    				Node nownode=second;//Ö¸Ïò½Úµã
-	    				Node former = null;//ÓÃÀ´Ôİ´æÕÒµ½µÄ½Úµã
+	    				String recomname = second.item_name;//æ¨èé¡¹ç›®
+	    				Node nownode=second;//æŒ‡å‘èŠ‚ç‚¹
+	    				Node former = null;//ç”¨æ¥æš‚å­˜æ‰¾åˆ°çš„èŠ‚ç‚¹
 	    				for(int t=0;t<sub_string.size();t++){
-	    					if(nownode.child_list!=null){//Èç¹ûº¢×Ó½Úµã²»Îª¿Õ
-	    						for(Node n:nownode.child_list){//±éÀúµ±Ç°½ÚµãµÄËùÓĞº¢×Ó½Úµã
-		    						if(n.item_name.equals(sub_string.get(t))){//Èç¹ûÕÒµ½Ôò¸³Öµ£¬²¢ÖÕÖ¹²éÕÒ
+	    					if(nownode.child_list!=null){//å¦‚æœå­©å­èŠ‚ç‚¹ä¸ä¸ºç©º
+	    						for(Node n:nownode.child_list){//éå†å½“å‰èŠ‚ç‚¹çš„æ‰€æœ‰å­©å­èŠ‚ç‚¹
+		    						if(n.item_name.equals(sub_string.get(t))){//å¦‚æœæ‰¾åˆ°åˆ™èµ‹å€¼ï¼Œå¹¶ç»ˆæ­¢æŸ¥æ‰¾
 		    							former = n;
 		    							break;
 		    						}
 		    					}
-		    					if(former == null)break;//ÅĞ¶ÏÓĞÃ»ÓĞÕÒµ½£¬Èç¹ûÃ»ÕÒµ½£¬ÔòÍË³öµ±Ç°×ÓÊ÷µÄËÑË÷
-		    					else nownode = former;//Èç¹ûÕÒµ½Ôò¼ÌĞøÏòÏÂ±È½Ï
+		    					if(former == null)break;//åˆ¤æ–­æœ‰æ²¡æœ‰æ‰¾åˆ°ï¼Œå¦‚æœæ²¡æ‰¾åˆ°ï¼Œåˆ™é€€å‡ºå½“å‰å­æ ‘çš„æœç´¢
+		    					else nownode = former;//å¦‚æœæ‰¾åˆ°åˆ™ç»§ç»­å‘ä¸‹æ¯”è¾ƒ
 	    					}
 	    					else break;
 	    				}
 	    				/**
-	    				 * 1.Ã»ÕÒµ½º¢×Ó½Úµã  ÕâÊÇ³¤¶È²»Ò»ÖÂ
-	    				 * 2¡¢º¢×Ó½ÚµãÎª¿ÕÊ±£¬´ËÊ±»¹ÊÇ³¤¶È²»Ò»ÖÂ
-	    				 * 3¡¢Õı³£½áÊø   ¾ÍÊÇ±È½Ï½áÊøÁË
+	    				 * 1.æ²¡æ‰¾åˆ°å­©å­èŠ‚ç‚¹  è¿™æ˜¯é•¿åº¦ä¸ä¸€è‡´
+	    				 * 2ã€å­©å­èŠ‚ç‚¹ä¸ºç©ºæ—¶ï¼Œæ­¤æ—¶è¿˜æ˜¯é•¿åº¦ä¸ä¸€è‡´
+	    				 * 3ã€æ­£å¸¸ç»“æŸ   å°±æ˜¯æ¯”è¾ƒç»“æŸäº†
 	    				 * 
-	    				 *  ÅĞ¶ÏnownodeµÄlevelºÍcur_tuµÄsizeµÄ±È½Ï
+	    				 *  åˆ¤æ–­nownodeçš„levelå’Œcur_tuçš„sizeçš„æ¯”è¾ƒ
 	    				 */
 	    				if(nownode.level==sub_string.size()){
 	    					score.put(recomname, score.getOrDefault(recomname, nownode.parent_stat));
@@ -177,11 +177,11 @@ public class GOPC_Tree {
 	    					iut = Pattern_Gen(cur,sub_string,u_tu,iut);
 	    					if (cur.color < 2 && cur.child_list!=null){
 	    						for(Node curchild:cur.child_list){
-	    							curchild.color=cur.color;//¸¸½ÚµãµÄcolorÖµ¸øº¢×Ó½Úµã
+	    							curchild.color=cur.color;//çˆ¶èŠ‚ç‚¹çš„colorå€¼ç»™å­©å­èŠ‚ç‚¹
 	    							s.push(curchild);
 	    						}
 	    					}
-	    					cur.color=0;//½«·ÃÎÊ¹ı»òÕß´«µİ¸øº¢×ÓcolorÖµµÄ½ÚµãµÄcolorÖµ¹éÁã
+	    					cur.color=0;//å°†è®¿é—®è¿‡æˆ–è€…ä¼ é€’ç»™å­©å­colorå€¼çš„èŠ‚ç‚¹çš„colorå€¼å½’é›¶
 	    				}
 	    			}
 	    			else break;
@@ -217,43 +217,43 @@ public class GOPC_Tree {
     	if(s==true&&cur.color==1){
     		if(cur.level==sub_string.size()&&!u_tu.contains(iutold))score.put(iutold, score.getOrDefault(iutold,(float) 0)+cur.parent_stat);
     	}
-    	if(s==false){//Èç¹û²»°üº¬µ±Ç°½ÚµãµÄ»°
-    		cur.color+=1;//ÏÈ¶Ôµ±Ç°½ÚµãµÄcolorÖµ½øĞĞĞŞ¸Ä
-    		if(cur.color==1){//ËµÃ÷ÕÒµ½´ıÍÆ¼öµÄÏîÄ¿
+    	if(s==false){//å¦‚æœä¸åŒ…å«å½“å‰èŠ‚ç‚¹çš„è¯
+    		cur.color+=1;//å…ˆå¯¹å½“å‰èŠ‚ç‚¹çš„colorå€¼è¿›è¡Œä¿®æ”¹
+    		if(cur.color==1){//è¯´æ˜æ‰¾åˆ°å¾…æ¨èçš„é¡¹ç›®
     			String iut=cur.item_name;
     			if(cur.level==sub_string.size()&&!u_tu.contains(iut)){
     				score.put(iut, score.getOrDefault(iut, (float) 0)+cur.parent_stat);
     			}
-    			return iut;//ĞÂµÄÍÆ¼öµÄitem±àºÅ
+    			return iut;//æ–°çš„æ¨èçš„itemç¼–å·
     		}
     	}
-    	return iutold;//¾ÉµÄÍÆ¼öµÄitem±àºÅ
+    	return iutold;//æ—§çš„æ¨èçš„itemç¼–å·
     }
     /**
-     * ²åÈëÅÅĞò£¬Ã¿´Î±£´æÔ­ĞòÁĞÇ°ÃæÓĞĞòµÄ²¿·Ö
-     * ·µ»Ø×Öµä{³¤¶È:ĞòÁĞ}
+     * æ’å…¥æ’åºï¼Œæ¯æ¬¡ä¿å­˜åŸåºåˆ—å‰é¢æœ‰åºçš„éƒ¨åˆ†
+     * è¿”å›å­—å…¸{é•¿åº¦:åºåˆ—}
      * @param a
      * @return
      */
     public static Map<Integer,List<String>> insertSort(List<String> a) {
         int i, j;
-        String insertNote;// Òª²åÈëµÄÊı¾İ
+        String insertNote;// è¦æ’å…¥çš„æ•°æ®
         Map<Integer,List<String>> bis = new HashMap<Integer,List<String>>();
         bis.put(1,new ArrayList<String>(a.subList(0, 1)));
-        for (i = 1; i < a.size(); i++) {// ´ÓÊı×éµÄµÚ¶ş¸öÔªËØ¿ªÊ¼Ñ­»·½«Êı×éÖĞµÄÔªËØ²åÈë
-            insertNote = a.get(i);// ÉèÖÃÊı×éÖĞµÄµÚ2¸öÔªËØÎªµÚÒ»´ÎÑ­»·Òª²åÈëµÄÊı¾İ
+        for (i = 1; i < a.size(); i++) {// ä»æ•°ç»„çš„ç¬¬äºŒä¸ªå…ƒç´ å¼€å§‹å¾ªç¯å°†æ•°ç»„ä¸­çš„å…ƒç´ æ’å…¥
+            insertNote = a.get(i);// è®¾ç½®æ•°ç»„ä¸­çš„ç¬¬2ä¸ªå…ƒç´ ä¸ºç¬¬ä¸€æ¬¡å¾ªç¯è¦æ’å…¥çš„æ•°æ®
             j = i - 1;
             while (j >= 0 && insertNote.compareTo(a.get(j))<0) {
-                a.set(j+1, a.get(j));// Èç¹ûÒª²åÈëµÄÔªËØĞ¡ÓÚµÚj¸öÔªËØ,¾Í½«µÚj¸öÔªËØÏòºóÒÆ¶¯
+                a.set(j+1, a.get(j));// å¦‚æœè¦æ’å…¥çš„å…ƒç´ å°äºç¬¬jä¸ªå…ƒç´ ,å°±å°†ç¬¬jä¸ªå…ƒç´ å‘åç§»åŠ¨
                 j--;
             }
-            a.set(j+1, insertNote) ;// Ö±µ½Òª²åÈëµÄÔªËØ²»Ğ¡ÓÚµÚj¸öÔªËØ,½«insertNote²åÈëµ½Êı×éÖĞ
+            a.set(j+1, insertNote) ;// ç›´åˆ°è¦æ’å…¥çš„å…ƒç´ ä¸å°äºç¬¬jä¸ªå…ƒç´ ,å°†insertNoteæ’å…¥åˆ°æ•°ç»„ä¸­
             bis.put(i+1, new ArrayList<String>(a.subList(0, i+1)));
         }
         return bis;
     }
     /**
-     * ÔÚº¢×Ó½ÚµãÖĞ£¬ÓÃ¶ş·Ö²éÕÒÃû×ÖÂú×ãÌõ¼şµÄ½Úµã
+     * åœ¨å­©å­èŠ‚ç‚¹ä¸­ï¼Œç”¨äºŒåˆ†æŸ¥æ‰¾åå­—æ»¡è¶³æ¡ä»¶çš„èŠ‚ç‚¹
      * @param a
      * @param s
      * @return
@@ -271,7 +271,7 @@ public class GOPC_Tree {
     	return -1;
     }
     /**
-     * ÇóÊ÷µÄÉî¶È
+     * æ±‚æ ‘çš„æ·±åº¦
      * @param cur
      * @return
      */
@@ -290,13 +290,13 @@ public class GOPC_Tree {
     	}
     }
     /**
-     * ÇóÊ÷µÄpattern¸öÊı
+     * æ±‚æ ‘çš„patternä¸ªæ•°
      * @return
      */
     public int pattern_count(){
     	int count = 0;
     	Stack<Node> s = new Stack<Node>();
-		ArrayList<Node>rootchild = root.child_list;//ËùÓĞµÚ¶ş²ã½Úµã
+		ArrayList<Node>rootchild = root.child_list;//æ‰€æœ‰ç¬¬äºŒå±‚èŠ‚ç‚¹
 		for(Node second :rootchild){
 			s.push(second);
 			while(s.size()!=0){
@@ -314,7 +314,7 @@ public class GOPC_Tree {
 		return count;
     }
     /**
-     * ÇóÒ¶×Ó½ÚµãÊı
+     * æ±‚å¶å­èŠ‚ç‚¹æ•°
      * @return
      */
     public  int leaf_node()
@@ -326,7 +326,7 @@ public class GOPC_Tree {
 //    	return sum;
     	int count = 0;
     	Stack<Node> s = new Stack<Node>();
-		ArrayList<Node>rootchild = root.child_list;//ËùÓĞµÚ¶ş²ã½Úµã
+		ArrayList<Node>rootchild = root.child_list;//æ‰€æœ‰ç¬¬äºŒå±‚èŠ‚ç‚¹
 		for(Node second :rootchild){
 			s.push(second);
 			while(s.size()!=0){
@@ -344,7 +344,7 @@ public class GOPC_Tree {
 		return count;
     }
     /**
-     * Çó×Ü½ÚµãÊı
+     * æ±‚æ€»èŠ‚ç‚¹æ•°
      * @return
      */
     public  int total_node()
@@ -356,7 +356,7 @@ public class GOPC_Tree {
 //    	return sum;
     	int count = 0;
     	Stack<Node> s = new Stack<Node>();
-		ArrayList<Node>rootchild = root.child_list;//ËùÓĞµÚ¶ş²ã½Úµã
+		ArrayList<Node>rootchild = root.child_list;//æ‰€æœ‰ç¬¬äºŒå±‚èŠ‚ç‚¹
 		for(Node second :rootchild){
 			s.push(second);
 			while(s.size()!=0){
@@ -374,7 +374,7 @@ public class GOPC_Tree {
 		return count;
     }
     /**
-     * ´òÓ¡Ê÷µÄËùÓĞÂ·¾¶
+     * æ‰“å°æ ‘çš„æ‰€æœ‰è·¯å¾„
      * @return
      */
     public List<String> print_tree()
@@ -418,19 +418,19 @@ public class GOPC_Tree {
 		long end_free = Runtime.getRuntime().freeMemory();
 		System.out.println("Memory Comsume:" + (end-end_free-start+start_free)+"Byte");
 //		System.out.println("Times:"+(t-t1)+"ms");
-//		//ÇóÊ÷µÄ½ÚµãÊı£¬
+//		//æ±‚æ ‘çš„èŠ‚ç‚¹æ•°ï¼Œ
 //		int total = m.total_node();
-//		System.out.println("½Úµã¸öÊıÎª£º" + total);
-//		//ÇóÊ÷µÄÒ¶×Ó½Úµã
+//		System.out.println("èŠ‚ç‚¹ä¸ªæ•°ä¸ºï¼š" + total);
+//		//æ±‚æ ‘çš„å¶å­èŠ‚ç‚¹
 //		int leaf = m.leaf_node();
-//		System.out.println("Ò¶×Ó½Úµã¸öÊıÎª£º" + leaf);
-//		//·ÖÖ¦½Úµã£¬
-//		System.out.println("·ÖÖ§½Úµã¸öÊıÎª£º" + (total - leaf));
-//		//rootµÄ×ÓÊ÷¸öÊı£¬
-//		System.out.println("rootµÄ×ÓÊ÷¸öÊı(¼´É­ÁÖÖĞÄÇ¸öÊ÷µÄ¸öÊı)£º" + m.root.child_list.size());
-//		//Ê÷µÄÉî¶È
-//		System.out.println("Ê÷µÄÉî¶ÈÎª£º" + (m.deepth(m.root)-1));
-//		System.out.println("pattern¸öÊıÎª£º " +  m.pattern_count());
+//		System.out.println("å¶å­èŠ‚ç‚¹ä¸ªæ•°ä¸ºï¼š" + leaf);
+//		//åˆ†æèŠ‚ç‚¹ï¼Œ
+//		System.out.println("åˆ†æ”¯èŠ‚ç‚¹ä¸ªæ•°ä¸ºï¼š" + (total - leaf));
+//		//rootçš„å­æ ‘ä¸ªæ•°ï¼Œ
+//		System.out.println("rootçš„å­æ ‘ä¸ªæ•°(å³æ£®æ—ä¸­é‚£ä¸ªæ ‘çš„ä¸ªæ•°)ï¼š" + m.root.child_list.size());
+//		//æ ‘çš„æ·±åº¦
+//		System.out.println("æ ‘çš„æ·±åº¦ä¸ºï¼š" + (m.deepth(m.root)-1));
+//		System.out.println("patternä¸ªæ•°ä¸ºï¼š " +  m.pattern_count());
 //			System.out.println("please input maxnum and top k:");
 //	    	int maxnum=sc.nextInt();
 //	    	int k=sc.nextInt();
@@ -447,19 +447,19 @@ public class GOPC_Tree {
 //			System.out.println("Times:"+(t3-t2)+"ms");
 //			System.out.println("Times:"+(t4-t3)+"ms");
 	   	    System.out.println("Build Tree Times:"+(t-t1)+"ms");
-			//ÇóÊ÷µÄ½ÚµãÊı£¬
+			//æ±‚æ ‘çš„èŠ‚ç‚¹æ•°ï¼Œ
 			int total = m.total_node();
-			System.out.println("Node Count£º" + total);
-			//ÇóÊ÷µÄÒ¶×Ó½Úµã
+			System.out.println("Node Countï¼š" + total);
+			//æ±‚æ ‘çš„å¶å­èŠ‚ç‚¹
 			int leaf = m.leaf_node();
-			System.out.println("Leaf Node Count£º" + leaf);
-			//·ÖÖ¦½Úµã£¬
-			System.out.println("Branch Node Count£º" + (total - leaf));
-			//rootµÄ×ÓÊ÷¸öÊı£¬
-			System.out.println("Root's Children Count£º" + m.root.child_list.size());
-			//Ê÷µÄÉî¶È
-			System.out.println("Deepth Of Tree£º" + (m.deepth(m.root)-1));
-			System.out.println("Pattern Count£º " +  m.pattern_count());
+			System.out.println("Leaf Node Countï¼š" + leaf);
+			//åˆ†æèŠ‚ç‚¹ï¼Œ
+			System.out.println("Branch Node Countï¼š" + (total - leaf));
+			//rootçš„å­æ ‘ä¸ªæ•°ï¼Œ
+			System.out.println("Root's Children Countï¼š" + m.root.child_list.size());
+			//æ ‘çš„æ·±åº¦
+			System.out.println("Deepth Of Treeï¼š" + (m.deepth(m.root)-1));
+			System.out.println("Pattern Countï¼š " +  m.pattern_count());
 			System.out.println("Finish ");
 			System.out.println("Read TU Times:"+(t3-t2)+"ms");
 			System.out.println("Recore Times:"+(t4-t3)+"ms");
