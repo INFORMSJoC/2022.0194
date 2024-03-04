@@ -3,7 +3,7 @@
 # Efficient and Flexible Long-Tail Recommendation Using Cosine Patterns
 
 This archive is distributed in association with the [INFORMS Journal on
-Computing](https://pubsonline.informs.org/journal/ijoc) under the [MIT License] (LICENSE).
+Computing](https://pubsonline.informs.org/journal/ijoc) under the [MIT License](LICENSE).
 
 The purpose of this repository is to share the data and scripts reported in the paper 
 [Efficient and Flexible Long-Tail Recommendation Using Cosing Patterns](https://doi.org/10.1287/ijoc.2022.0194) by Y. Wang, J. Wu, Z. Wu, and G. Adomavicius. 
