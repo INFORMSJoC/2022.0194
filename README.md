@@ -56,7 +56,7 @@ Sample input file format:
 ## Baselines
 
 We used the following publicly available libraries for baseline algorithms:
-- MyMediaLite (http://www.mymedialite.net/): UserKNN, ItemKNN, SoftMarginRankingMF, BPRMF, WRMF
+- MyMediaLite (http://www.mymedialite.net/): UserKNN, ItemKNN, BPRMF, WRMF
 - Libname (url): AR, FP, PAR
 - Libname (url): Deep Learning
 - Libname (url): Long-tail
