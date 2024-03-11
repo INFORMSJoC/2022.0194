@@ -64,7 +64,7 @@ Sample input file format:
 We used the following publicly available libraries for baseline algorithms:
 - [MyMediaLite](http://www.mymedialite.net/): UserKNN, ItemKNN, BPRMF, WRMF
 - [Surprise](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVD): SVD
-- Libname (url): AR, FP, PAR
+- [Apriori](https://borgelt.net/apriori.html): FP, AR, PAR
 - [VAE_CF](https://github.com/dawenl/vae_cf/tree/master): Deep Learning
 - [Long-Tail-GAN](https://github.com/CrowdDynamicsLab/NCF-GAN): Long-tail recommendation
 
