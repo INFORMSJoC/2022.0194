@@ -30,7 +30,7 @@ Below is the BibTex for citing this snapshot of the respoitory.
 ```
 
 ## Data
-Data sets used for experiments in this paper are described in the data directory.
+Data sets used for experiments in this paper are described in the [data](https://github.com/Yaqiong-Wang/2022.0194/tree/main/data) directory.
 
 ## Replication
 
