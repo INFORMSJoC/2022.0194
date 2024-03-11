@@ -30,11 +30,17 @@ Below is the BibTex for citing this snapshot of the respoitory.
 ```
 
 ## Data
-Data sets used for experiments in this paper are described in the [data](https://github.com/Yaqiong-Wang/2022.0194/tree/main/data) directory.
+Data sets used for experiments in this paper are described in the [data]([https://github.com/Yaqiong-Wang/2022.0194/tree/main/data](https://github.com/Yaqiong-Wang/2022.0194/blob/main/data/data_sources.md)) directory.
 
 ## Replication
 
+The [scripts](https://github.com/Yaqiong-Wang/2022.0194/tree/main/scripts) directory contains all the codes that generate cosine pattern based recommendations using either single node or spark-based distributed computing.
+
 You will need java compiler to run the code.
+
+- [Mptree.java](https://github.com/Yaqiong-Wang/2022.0194/tree/main/scripts/Singlenode_MPTrees%20(originalversion)/src/RefindCore) corresponds to the Basic Recommendation Scheme described in Section 3.3 in the paper.
+- [GOPC_Tree.java](https://github.com/Yaqiong-Wang/2022.0194/tree/main/scripts/Singlenode_GOPC/src/stand_alone_with_tree) corresponds to the Cosine-Pattern Tree Traversal Approach described in Section 3.4 in the paper.
+- [GOPC_Tree_Spark.java](https://github.com/Yaqiong-Wang/2022.0194/tree/main/scripts/Distributed_spark_GOPC(including%20cp%20mining%20and%20tree%20matching)/src/main/java/test) corresponds to the Parallelization of the Proposed Approach described in Section 3.5 in the paper.
 
 To execute CP-tree based recommendation, run the following:
 ```
