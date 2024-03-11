@@ -25,12 +25,12 @@ import java.util.Stack;
 import scala.Tuple2;
 
 public class GOPC_Tree {
-    public Node root;//root½Úµã
-    public List<List<String>> Tu;//±£´æ²âÊÔÊı¾İ
-    public Map<String,Float>score;//´æ´¢ÍÆ¼öµÄitemµÄ±àºÅÓëÖµ
+    public Node root;//rootèŠ‚ç‚¹
+    public List<List<String>> Tu;//ä¿å­˜æµ‹è¯•æ•°æ®
+    public Map<String,Float>score;//å­˜å‚¨æ¨èçš„itemçš„ç¼–å·ä¸å€¼
     public static float maxs;
     /**
-     * ¹¹½¨Ê÷
+     * æ„å»ºæ ‘
      * @param file
      * @throws Exception
      */
@@ -64,7 +64,7 @@ public class GOPC_Tree {
         				nownode.child_list.add(u);
         			}
         			else{
-        				int listLength_1 = nownode.child_list.size();//µ±Ç°½Úµãº¢×Ó½ÚµãµÄ¸öÊı
+        				int listLength_1 = nownode.child_list.size();//å½“å‰èŠ‚ç‚¹å­©å­èŠ‚ç‚¹çš„ä¸ªæ•°
         				if(!nownode.child_list.get(listLength_1-1).item_name.equals(ss[i])){
         					Node u = new Node(ss[i],0,nownode);
         					nownode.child_list.add(u);
@@ -79,13 +79,13 @@ public class GOPC_Tree {
         			nownode = nownode.child_list.get(listlength-1);
         		}		
         	}
-        	if(ss.length==2){//½«µ¥ÏîµÄÖ§³Ö¶ÈÌí¼Ó½øÈ¥
+        	if(ss.length==2){//å°†å•é¡¹çš„æ”¯æŒåº¦æ·»åŠ è¿›å»
         		nownode.parent_stat += Float.parseFloat(ss[ss.length-1]);
         	}
         }
     }
     /**
-     * ¶ÁÈ¡²âÊÔÊı¾İ
+     * è¯»å–æµ‹è¯•æ•°æ®
      * @param file
      * @throws Exception
      */
@@ -103,7 +103,7 @@ public class GOPC_Tree {
     	 }	
     }
     /**
-     * ËÑË÷Â·¾¶
+     * æœç´¢è·¯å¾„
      * @param file
      * @param maxnum
      * @param k
@@ -113,11 +113,11 @@ public class GOPC_Tree {
     public List<Tuple2<Integer,List<Tuple2<String,Float>>>> SearchPath(Node root_another) throws Exception{
     	List<Tuple2<Integer,List<Tuple2<String,Float>>>> jieguo= new ArrayList<Tuple2<Integer,List<Tuple2<String,Float>>>>();
     	for(int i=0;i<Tu.size();i++){
-    		score=new HashMap<String,Float>();//valueÖµÊı×é³õÊ¼»¯
+    		score=new HashMap<String,Float>();//valueå€¼æ•°ç»„åˆå§‹åŒ–
     		Stack<Node> s = new Stack<Node>();
-    		ArrayList<Node>rootchild = root.child_list;//ËùÓĞµÚ¶ş²ã½Úµã
-    		String iut ="";//ÍÆ¼öµÄitemµÄ±àºÅ³õÊ¼»¯
-    		maxs=0;//³õÊ¼»¯×î´óÎªÁã
+    		ArrayList<Node>rootchild = root.child_list;//æ‰€æœ‰ç¬¬äºŒå±‚èŠ‚ç‚¹
+    		String iut ="";//æ¨èçš„itemçš„ç¼–å·åˆå§‹åŒ–
+    		maxs=0;//åˆå§‹åŒ–æœ€å¤§ä¸ºé›¶
     		String results = "";
     		for(Node second :rootchild){
     			s.push(second);
@@ -126,11 +126,11 @@ public class GOPC_Tree {
     				iut = Pattern_Gen(cur, Tu.get(i),iut,root_another);
     				if (cur.color < 2 && cur.child_list!=null){
     					for(Node curchild:cur.child_list){
-    						curchild.color=cur.color;//¸¸½ÚµãµÄcolorÖµ¸øº¢×Ó½Úµã
+    						curchild.color=cur.color;//çˆ¶èŠ‚ç‚¹çš„colorå€¼ç»™å­©å­èŠ‚ç‚¹
     						s.push(curchild);
     					}
     				}
-    				cur.color=0;//½«·ÃÎÊ¹ı»òÕß´«µİ¸øº¢×ÓcolorÖµµÄ½ÚµãµÄcolorÖµ¹éÁã
+    				cur.color=0;//å°†è®¿é—®è¿‡æˆ–è€…ä¼ é€’ç»™å­©å­colorå€¼çš„èŠ‚ç‚¹çš„colorå€¼å½’é›¶
     			}
     		}
     		Iterator<Map.Entry<String, Float>> entries = score.entrySet().iterator();
@@ -166,8 +166,8 @@ public class GOPC_Tree {
     	}
     	else if(tu.contains(cur.item_name)==false){
     		cur.color+=1;
-    		if(cur.color==1){//Èç¹ûÊÇµÚÒ»´ÎÆ¥ÅäÎ´³É¹¦
-    			String iut=cur.item_name;//×Ö·û´®
+    		if(cur.color==1){//å¦‚æœæ˜¯ç¬¬ä¸€æ¬¡åŒ¹é…æœªæˆåŠŸ
+    			String iut=cur.item_name;//å­—ç¬¦ä¸²
 //    			if(score.containsKey(iut)) score.put(iut,score.get(iut)+cur.parent_stat);
 //    			else score.put(iut,cur.parent_stat);
     			if(!cur.parent.item_name.equals("Root")){
@@ -183,26 +183,26 @@ public class GOPC_Tree {
     					score.put(iut,confidence);
     				}
     			}
-    			return iut;//ĞÂµÄÍÆ¼öµÄitem±àºÅ
+    			return iut;//æ–°çš„æ¨èçš„itemç¼–å·
     		}
     	}
-    	return iutold;//¾ÉµÄÍÆ¼öµÄitem±àºÅ
+    	return iutold;//æ—§çš„æ¨èçš„itemç¼–å·
     }
-    public float Prefix_value(Node cur,String iutold,Node root_another){//È¥²éÕÒÇ°×ºÂ·¾¶¶ÔÓ¦µÄÖµ
+    public float Prefix_value(Node cur,String iutold,Node root_another){//å»æŸ¥æ‰¾å‰ç¼€è·¯å¾„å¯¹åº”çš„å€¼
     	List<String> prefix= new ArrayList<String>();
     	float value = 0;
     	Node nowNode = cur;
-    	while(!nowNode.item_name.equals(new String("Root"))){//»ñÈ¡Ç°×ºÂ·¾¶
+    	while(!nowNode.item_name.equals(new String("Root"))){//è·å–å‰ç¼€è·¯å¾„
     		if(!nowNode.item_name.equals(iutold))prefix.add(nowNode.item_name);
     		nowNode = nowNode.parent;
     	}
     	nowNode = root_another;
-    	//´ÓÊ÷ÉÏËÑË÷Öµ
+    	//ä»æ ‘ä¸Šæœç´¢å€¼
     	for(int i = prefix.size()-1;i>=0;i--){
 //    		for(int j =0;j<nowNode.child_list.size();j++){
-//    			if(nowNode.child_list.get(j).item_name.equals(prefix.get(i))){ //Èç¹û²éÕÒµ½Ôò¼ÌĞøÏòÏÂ²éÕÒ
-//    				nowNode = nowNode.child_list.get(j);//Ö¸ÕëÖ¸Ïòº¢×Ó½Úµã
-//    				break;//ÍË³öµ±Ç°Ñ­»·
+//    			if(nowNode.child_list.get(j).item_name.equals(prefix.get(i))){ //å¦‚æœæŸ¥æ‰¾åˆ°åˆ™ç»§ç»­å‘ä¸‹æŸ¥æ‰¾
+//    				nowNode = nowNode.child_list.get(j);//æŒ‡é’ˆæŒ‡å‘å­©å­èŠ‚ç‚¹
+//    				break;//é€€å‡ºå½“å‰å¾ªç¯
 //    			}
 //    		}
     		int index = binarySearch(nowNode, prefix.get(i));
