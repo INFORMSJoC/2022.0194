@@ -62,11 +62,11 @@ Sample input file format:
 ## Baselines
 
 We used the following publicly available libraries for baseline algorithms:
-- [MyMediaLite](http://www.mymedialite.net/): UserKNN, ItemKNN, BPRMF, WRMF
+- [MyMediaLite](http://www.mymedialite.net/): UserKNN (called UCF in our paper), ItemKNN (ICF), BPRMF (BPR), WRMF (WRMF)
 - [Surprise](https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVD): SVD
 - [Apriori](https://borgelt.net/apriori.html): FP, AR, PAR
-- [VAE_CF](https://github.com/dawenl/vae_cf/tree/master): Deep Learning
-- [Long-Tail-GAN](https://github.com/CrowdDynamicsLab/NCF-GAN): Long-tail recommendation
+- [VAE_CF](https://github.com/dawenl/vae_cf/tree/master): Deep Learning (called DL in our paper)
+- [Long-Tail-GAN](https://github.com/CrowdDynamicsLab/NCF-GAN): Long-tail recommendation (called LNCF in our paper)
 
 ## Support
 Please contact [Yaqiong Wang](ywang31@scu.edu) if you have any questions.
