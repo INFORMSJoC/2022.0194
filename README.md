@@ -22,7 +22,7 @@ Below is the BibTex for citing this snapshot of the respoitory.
 @article{ijoc.2022.0194,
   author =        {Wang, Yaqiong and Wu, Junjie and Wu, Zhiang and Adomavicius, Gediminas},
   publisher =     {INFORMS Journal on Computing},
-  title =         {{Efficient and Flexible Long-Tail Recommendation Using Cosing Patterns}},
+  title =         {Efficient and Flexible Long-Tail Recommendation Using Cosing Patterns},
   year =          {2024},
   doi =           {10.1287/ijoc.2022.0194.cd},
   note =          {Available for download at {https://github.com/INFORMSJoC/2022.0194}},
@@ -34,7 +34,7 @@ Data sets used for experiments in this paper are described in the [data](https:/
 
 ## Replication
 
-The [scripts](https://github.com/Yaqiong-Wang/2022.0194/tree/main/scripts) directory contains all the codes that generate cosine pattern based recommendations using either single node or spark-based distributed computing.
+The [scripts](https://github.com/Yaqiong-Wang/2022.0194/tree/main/scripts) directory contains the codes that generate cosine pattern based recommendations using either single node or spark-based distributed computing.
 
 You will need java compiler to run the code.
 
